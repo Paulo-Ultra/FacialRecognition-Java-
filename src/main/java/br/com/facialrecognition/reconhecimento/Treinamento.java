@@ -35,17 +35,24 @@ public class Treinamento {
             contador++;
         }
 
-        //PCA -> Principal Component Analyzes - Parâmetros do EigenFaces são os Components e EigenVectors o Padrão é 50
+        //PCA -> Principal Component Analysis - Parâmetros do EigenFaces são os Components e EigenVectors o Padrão é 50
+        //PCA -> Analisa a variação para montar uma Mean Face
         //Na documentação diz que esse número de componentes (50) é suficiente normalmente
         FaceRecognizer eigenfaces = EigenFaceRecognizer.create(50, 0);
+
+        //LDA -> Linear Discriminant Analysis - Reduz as dimensões, e não fica focado na variação de imagens(PCA),
+        // mas em maximizar a separação entre as classes e a iluminação não afetará as outras faces.
         FaceRecognizer fisherFaces = FisherFaceRecognizer.create();
+
+        //LBPH -> Local Binary Patterns Histograms - O número decimal é usado para treinar o sistema, gerando um histograma
+        //dos valores para cada face, melhor para ser usado em ambientes de muita ou pouca luz, pois consegue diferenciar melhor
         FaceRecognizer lbph = LBPHFaceRecognizer.create(2,9,9,9,1);
 
         eigenfaces.train(fotos, rotulos);
         eigenfaces.save("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorEigenFaces.yml");
 
         fisherFaces.train(fotos, rotulos);
-        fisherFaces.save("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorFisherFaces.yml");fisherFaces.train(fotos, rotulos);
+        fisherFaces.save("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorFisherFaces.yml");
 
         lbph.train(fotos, rotulos);
         lbph.save("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorLBPH.yml");

@@ -42,7 +42,7 @@ public class Reconhecimento {
         
         FaceRecognizer reconhecedor = FisherFaceRecognizer.create();
         reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorFisherFaces.yml");
-        reconhecedor.setThreshold(2000);
+        reconhecedor.setThreshold(1000);
         
 //        FaceRecognizer reconhecedor = LBPHFaceRecognizer.create();
 //        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorLBPH.yml");
