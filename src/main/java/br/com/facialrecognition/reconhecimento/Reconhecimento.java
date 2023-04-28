@@ -35,15 +35,17 @@ public class Reconhecimento {
         CascadeClassifier detectorFace = new CascadeClassifier(
                 "src\\main\\java\\br\\com\\facialrecognition\\recursos\\haarcascade_frontalface_alt.xml");
         
-        FaceRecognizer reconhecedor = EigenFaceRecognizer.create(); // *antes: createEigenFaceRecognizer();
-        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorEigenFaces.yml");// *antes: load()
-        //reconhecedor.setThreshold(0);
+//        FaceRecognizer reconhecedor = EigenFaceRecognizer.create(); // *antes: createEigenFaceRecognizer();
+//        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorEigenFaces.yml");// *antes: load()
+        //KNN valor da confiança/distância entre as imagens, quanto menor mais confiável
+//        reconhecedor.setThreshold(3000);
         
-        //FaceRecognizer reconhecedor = FisherFaceRecognizer.create();
-        //reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorFisherFaces.yml");
+        FaceRecognizer reconhecedor = FisherFaceRecognizer.create();
+        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorFisherFaces.yml");
+        reconhecedor.setThreshold(2000);
         
-        //FaceRecognizer reconhecedor = LBPHFaceRecognizer.create();
-        //reconhecedor.read(""src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorLBPH.yml");
+//        FaceRecognizer reconhecedor = LBPHFaceRecognizer.create();
+//        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorLBPH.yml");
         
         
         CanvasFrame cFrame = new CanvasFrame("Reconhecimento", CanvasFrame.getDefaultGamma() / camera.getGamma());

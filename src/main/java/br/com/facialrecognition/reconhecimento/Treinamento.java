@@ -35,7 +35,9 @@ public class Treinamento {
             contador++;
         }
 
-        FaceRecognizer eigenfaces = EigenFaceRecognizer.create();
+        //PCA -> Principal Component Analyzes - Parâmetros do EigenFaces são os Components e EigenVectors o Padrão é 50
+        //Na documentação diz que esse número de componentes (50) é suficiente normalmente
+        FaceRecognizer eigenfaces = EigenFaceRecognizer.create(50, 0);
         FaceRecognizer fisherFaces = FisherFaceRecognizer.create();
         FaceRecognizer lbph = LBPHFaceRecognizer.create(2,9,9,9,1);
 
