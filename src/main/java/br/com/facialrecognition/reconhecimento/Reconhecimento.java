@@ -40,12 +40,13 @@ public class Reconhecimento {
         //KNN valor da confiança/distância entre as imagens, quanto menor mais confiável
 //        reconhecedor.setThreshold(3000);
         
-        FaceRecognizer reconhecedor = FisherFaceRecognizer.create();
-        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorFisherFaces.yml");
-        reconhecedor.setThreshold(1000);
-        
-//        FaceRecognizer reconhecedor = LBPHFaceRecognizer.create();
-//        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorLBPH.yml");
+//        FaceRecognizer reconhecedor = FisherFaceRecognizer.create();
+//        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorFisherFaces.yml");
+//        reconhecedor.setThreshold(1000);
+
+        //Bastante robusto com relação a iluminação
+        FaceRecognizer reconhecedor = LBPHFaceRecognizer.create();
+        reconhecedor.read("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorLBPH.yml");
         
         
         CanvasFrame cFrame = new CanvasFrame("Reconhecimento", CanvasFrame.getDefaultGamma() / camera.getGamma());

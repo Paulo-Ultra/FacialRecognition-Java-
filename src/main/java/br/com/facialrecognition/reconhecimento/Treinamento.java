@@ -46,7 +46,7 @@ public class Treinamento {
 
         //LBPH -> Local Binary Patterns Histograms - O número decimal é usado para treinar o sistema, gerando um histograma
         //dos valores para cada face, melhor para ser usado em ambientes de muita ou pouca luz, pois consegue diferenciar melhor
-        FaceRecognizer lbph = LBPHFaceRecognizer.create(2,9,9,9,1);
+        FaceRecognizer lbph = LBPHFaceRecognizer.create(2, 9, 9, 9, 2000);
 
         eigenfaces.train(fotos, rotulos);
         eigenfaces.save("src\\main\\java\\br\\com\\facialrecognition\\recursos\\classificadorEigenFaces.yml");
