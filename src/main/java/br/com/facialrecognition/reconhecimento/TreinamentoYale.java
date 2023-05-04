@@ -31,7 +31,7 @@ public class TreinamentoYale {
 
         FaceRecognizer eigenface = EigenFaceRecognizer.create(30, 0);
         FaceRecognizer fisherface = FisherFaceRecognizer.create(30, 0);
-        FaceRecognizer lbph = LBPHFaceRecognizer.create(12, 10, 15, 15, 200);
+        FaceRecognizer lbph = LBPHFaceRecognizer.create(12, 10, 15, 15, 0);
 
         eigenface.train(fotos, rotulos);
         eigenface.save("src\\main\\java\\br\\com\\facialrecognition\\yalefaces\\recursos\\classificadorEigenfacesYale.yml");
